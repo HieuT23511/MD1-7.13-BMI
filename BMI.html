@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính chỉ số cân nặng cơ thể</title>
+</head>
+<body>
+<h2>TÍNH CHỈ SỐ CÂN NẶNG CƠ THỂ</h2>
+<h2>(Body mass index - BMI)</h2>
+<br>
+<table>
+    <tr>
+        <th> Nhập cân nặng của bạn (kg):</th>
+        <td>
+            <label for="weight"></label>
+            <input type="text" id="weight"></td>
+    </tr>
+    <tr>
+        <th>Nhập chiều cao của bạn (cm):</th>
+        <td>
+            <label for="height"></label>
+            <input type="text" id="height"></td>
+    </tr>
+</table>
+<br>
+<button type="button" onclick="check()"> Kiểm tra</button>
+<br> <br>
+<h3 id="display"></h3>
+<script>
+    function check(){
+        let weight = +document.getElementById('weight').value;
+        let height = +document.getElementById('height').value;
+        let BMI = + weight / (height / 100)**2;
+        if (weight > 0 && height>0){
+            //Tính toán BMI
+            if (BMI < 18)
+                document.getElementById('display').innerHTML = '(BMI: Underweight) Bạn đang thiếu cân! ';
+            else if (BMI < 25.0)
+                document.getElementById('display').innerHTML = '(BMI: Normal) Chỉ số của bạn bình thường! ';
+            else if (BMI < 30.0)
+                document.getElementById('display').innerHTML = '(BMI: Overweight) Bạn đang thừa cân đó! ';
+            else
+                document.getElementById('display').innerHTML = '(BMI: Obese) Bạn đang béo phì. Cần giảm cân ngay! ';
+        }
+        else {
+            alert('Vui lòng nhập lại ');
+        }
+    }
+
+
+</script>
+
+</body>
+</html>
